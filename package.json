@@ -1,0 +1,19 @@
+{
+  "name": "random-class",
+  "version": "1.0.0",
+  "description": "a npm that can get randomClass and bigNum",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joyceandlee/random-class.git"
+  },
+  "author": "up",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joyceandlee/random-class/issues"
+  },
+  "homepage": "https://github.com/Joyceandlee/random-class#readme"
+}
