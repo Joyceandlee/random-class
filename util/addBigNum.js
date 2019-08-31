@@ -13,25 +13,40 @@ module.exports.addBigNum = (a, b) => {
     }
     console.log(res.replace(/^0+/, ''));
 
-    // let numed1 = 0, numed2 = 0;
-    // // 两个20位长度大数
-    // if (num1.length == 20 && num2.length == 20) {
-    //     num1 = Number(num1);
-    //     num2 = Number(num2);
-    //     if (num1 > 9007199254740992 && num2 > 9007199254740992) {
-    //         num1 = num1 - 9007199254740992;
-    //         num2 = num2 - 9007199254740992;
-    //         arr.push(9007199254740992 * 2,num1,num2)
-    //         if(numed1>9007199254740992,numed2>9007199254740992){
-    //             addBigNum(num1, num2)
-    //         }else{
-    //             for(let i=0;i<arr.length;i++){
-    //                 sum+=arr[i]
-    //             }
-    //             console.log(sum)
-    //         }
-    //     } 
-    // }
+}
+
+module.exports.addBigNum(a, b) {
+    // 补全0，并多补一位0
+    let arr1 = null,
+        arr2 = null
+    if (str1.length > str2.length) {
+        str1 = '0' + str1
+        for (let i = str2.length; i < str1.length; i++) {
+            str2 = '0' + str2
+        }
+        arr1 = str1.split('')
+        arr2 = str2.split('')
+    } else {
+        str2 = '0' + str2
+        for (let i = str1.length; i < str2.length; i++) {
+            str1 = '0' + str1
+        }
+        arr1 = str1.split('')
+        arr2 = str2.split('')
+    }
+    // 注意这里arr里边保存的还是字符串，需要转成数字后再相加
+    for (let i = arr1.length - 1; i >= 0; i--) {
+        let temp = parseInt(arr1[i]) + parseInt(arr2[i])
+        arr1[i] = temp % 10
+        // 处理得到进位的结果
+        arr1[i - 1] = parseInt(arr1[i - 1]) + Math.floor(temp / 10)
+    }
+    if (arr1[0] === 0) {
+        return (arr1.join('')).substring(1)
+
+    } else {
+        return arr1.join('')
+    }
 }
 
 
